@@ -45,9 +45,9 @@ $categories = getCategories();
                         <ul
                             class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
                             <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i
-                                    class="la la-sign-in mr-1"></i><a href="login.html"> Login</a></li>
+                                    class="la la-sign-in mr-1"></i><a href="{{route('login')}}"> Login</a></li>
                             <li class="d-flex align-items-center"><i class="la la-user mr-1"></i><a
-                                    href="sign-up.html"> Register</a></li>
+                                    href="{{route('register')}}"> Register</a></li>
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
@@ -61,7 +61,7 @@ $categories = getCategories();
                 <div class="row align-items-center">
                     <div class="col-lg-2">
                         <div class="logo-box">
-                            <a href="index.html" class="logo"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
+                            <a href="/" class="logo"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
                                     data-toggle="tooltip" data-placement="top" title="Search">
@@ -115,35 +115,29 @@ $categories = getCategories();
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">Home <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="home-2.html">Home Two</a></li>
-                                            <li><a href="home-3.html">Home Three</a></li>
-                                            <li><a href="home-4.html">Home four</a></li>
-                                        </ul>
+                                        <a href="#">Home</a>
                                     </li>
                                     <li>
-                                        <a href="#">courses <i class="la la-angle-down fs-12"></i></a>
+                                        <a href="">courses <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="dropdown-menu-item">
-                                            <li><a href="course-grid.html">course grid</a></li>
-                                            <li><a href="course-list.html">course list</a></li>
-                                            <li><a href="course-grid-left-sidebar.html">grid left sidebar</a></li>
-                                            <li><a href="course-grid-right-sidebar.html">grid right sidebar</a>
+                                            <li><a href="course.html">course grid</a></li>
+                                            <li><a href="course.html">course list</a></li>
+                                            <li><a href="course.html">grid left sidebar</a></li>
+                                            <li><a href="course.html">grid right sidebar</a>
                                             </li>
-                                            <li><a href="course-list-left-sidebar.html">list left sidebar <span
+                                            <li><a href="course.html">list left sidebar <span
                                                         class="ribbon ribbon-blue-bg">New</span></a></li>
-                                            <li><a href="course-list-right-sidebar.html">list right sidebar <span
+                                            <li><a href="course.html">list right sidebar <span
                                                         class="ribbon ribbon-blue-bg">New</span></a></li>
-                                            <li><a href="course-details.html">course details</a></li>
-                                            <li><a href="lesson-details.html">lesson details</a></li>
-                                            <li><a href="my-courses.html">My courses</a></li>
+                                            <li><a href="course.html">course details</a></li>
+                                            <li><a href="course.html">lesson details</a></li>
+                                            <li><a href="course.html">My courses</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#">Student <i class="la la-angle-down fs-12"></i></a>
                                         <ul class="dropdown-menu-item">
-                                            <li><a href="student-detail.html">student detail</a></li>
+                                            <li><a href="">student detail</a></li>
                                             <li><a href="student-quiz.html">take quiz</a></li>
                                             <li><a href="student-quiz-results.html">quiz results</a></li>
                                             <li><a href="student-quiz-result-details.html">quiz details</a></li>
@@ -159,7 +153,7 @@ $categories = getCategories();
                                         <div class="dropdown-menu-item mega-menu">
                                             <ul class="row no-gutters">
                                                 <li class="col-lg-3">
-                                                    <a href="dashboard.html">dashboard <span
+                                                    <a href="{{route('dashboard')}}">dashboard <span
                                                             class="ribbon">Hot</span></a>
                                                     <a href="about.html">about</a>
                                                     <a href="teachers.html">Teachers</a>

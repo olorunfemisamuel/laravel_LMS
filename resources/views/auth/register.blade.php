@@ -1,7 +1,25 @@
 <x-guest-layout>
+    
+    <input type="hidden" name="role" id="selectedRole" value="instructor">
+    
+    
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+
+        <div class="flex justify-center mb-6">
+            <button type="button" id="instructorTab"
+                class="px-4 py-2 text-white border-b-2 border-transparent bg-gray-500 hover:border-gray-700 active-tab">
+                Instructor
+            </button>
+            <button type="button" id="studentTab"
+                class="px-4 py-2 text-gray border-b-2 border-transparent bg-white hover:border-gray-400">
+                Student
+            </button>
+        </div>
+        
+        <input type="hidden" name ="role" value="admin" />
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -49,4 +67,37 @@
             </x-primary-button>
         </div>
     </form>
+
+  
+    <script>
+        const instructorTab = document.getElementById('instructorTab');
+        const studentTab = document.getElementById('studentTab');
+        const selectedRole = document.getElementById('selectedRole');
+    
+        function activateTab(tabToActivate, tabToDeactivate, role) {
+            tabToActivate.style.backgroundColor = '#3b82f6';
+            tabToActivate.style.color = 'white';
+            tabToDeactivate.style.backgroundColor = 'white';
+            tabToDeactivate.style.color = 'gray';
+            selectedRole.value = role;
+            
+        }
+    
+        instructorTab.addEventListener('click', () => {
+            
+            activateTab(instructorTab,studentTab, 'instructor');
+        });
+    
+        studentTab.addEventListener('click', () => {
+            activateTab(studentTab,instructorTab, 'student');
+        });
+    
+        window.addEventListener('DOMContentLoaded', () => {
+            instructorTab.style.backgroundColor = '#3b82f6';
+            instructorTab.style.color = 'white';
+        });
+    </script>
+    
+    
+
 </x-guest-layout>

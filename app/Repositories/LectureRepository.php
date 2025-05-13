@@ -14,8 +14,7 @@ class LectureRepository
 
     public function createLecture($data)
     {
-
-       return CourseLecture::create($data);
+  return CourseLecture::create($data);
 
     }
 

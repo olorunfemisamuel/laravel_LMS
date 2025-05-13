@@ -15,15 +15,19 @@ use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubcategoryController;
 use App\Http\Controllers\frontend\FrontendDashboardController;
 use App\Http\Controllers\LectureController;
+use Illuminate\Auth\Events\Authenticated;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+/*users route*/
+Route::get('/login', [AdminController::class, 'login'])->name('login');
 
 /* Admin Route   */
-Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+// Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login');
+
 
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -62,7 +66,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
 
 
 /*  Instructor Route  */
-Route::get('/instructor/login', [InstructorController::class, 'login'])->name('instructor.login');
+// Route::get('/instructor/login', [InstructorController::class, 'login'])->name('instructor.login');
 Route::get('/instructor/register', [InstructorController::class, 'register'])->name('instructor.register');
 Route::middleware(['auth', 'verified', 'role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
     Route::get('/dashboard', [InstructorController::class, 'dashboard'])->name('dashboard');
